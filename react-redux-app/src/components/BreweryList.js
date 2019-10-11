@@ -9,13 +9,14 @@ const BreweryList = props => {
 	}, []);
 
 	if (props.isFetching) {
-		return <h2>Loading Breweries</h2>;
+		return <h2>Loading Breweries...</h2>;
 	}
 
 	return (
 		<div>
 			{props.error && <p>{props.error}</p>}
 			{props.breweries.map(brewery => (
+				// console.log(brewery)
 				<Brewery key={brewery.id} brewery={brewery} />
 			))}
 		</div>
