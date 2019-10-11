@@ -3,6 +3,14 @@ import { connect } from "react-redux";
 import { fetchBreweries } from "../action/index";
 import Brewery from "./Brewery";
 
+import styled from "styled-components";
+
+const Cards = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+`;
+
 const BreweryList = props => {
 	useEffect(() => {
 		props.fetchBreweries();
@@ -13,13 +21,13 @@ const BreweryList = props => {
 	}
 
 	return (
-		<div>
+		<Cards>
 			{props.error && <p>{props.error}</p>}
 			{props.breweries.map(brewery => (
 				// console.log(brewery)
 				<Brewery key={brewery.id} brewery={brewery} />
 			))}
-		</div>
+		</Cards>
 	);
 };
 
